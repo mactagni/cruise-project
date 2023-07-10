@@ -55,4 +55,7 @@ for(let i of imageData) {
     IMAGES[i.imageName] = new URL(imageUrl, import.meta.url).href;
 }
 // console.log(IMAGES)
+
+IMAGES.imageStack = new URL('./homepage-images/image-stack.png', import.meta.url).href
+
 export default IMAGES;

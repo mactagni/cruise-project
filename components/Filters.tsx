@@ -17,6 +17,14 @@ type AppProps = {
     clearFilters: any;
 }
 
+const style ={
+    menuStyles: {
+        marginRight: '1.2rem', 
+        position: 'fixed', 
+        zIndex: '99' 
+    }
+}
+
 function Filters({
     departurePortsToFilter,
     handlePortsChange,
@@ -30,7 +38,11 @@ function Filters({
     clearFilters
 }: AppProps) {
     return (
-        <div style={{ marginRight: '1.2rem', position: 'fixed', zIndex: '99' }}>
+        <div style={{
+            marginRight: '1.2rem', 
+            position: 'fixed', 
+            zIndex: '99' 
+        }}>
             <div>
                 <input onClick={handleFiltersClick} className='filter-button filter-components' type="button" value="Apply" />
             </div>

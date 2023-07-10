@@ -2,8 +2,10 @@ import ShipContent from '../components/ShipContent';
 import Filters from '../components/Filters';
 import ShipDialog from '../components/ShipDialog';
 import { data } from '../utils/ships-data.ts';
-import { useState } from 'react';
+import { getAllDestinations } from '../utils/ships-data.ts'; 
+import { useEffect, useState } from 'react';
 import { compareArrays, compareTripLength, compareBuildYear } from '../utils/compareFunctions.ts';
+import { useLocation } from 'react-router';
 
 const style = {
     nothingFound: {
@@ -15,9 +17,12 @@ const style = {
     }
 }
 
-// console.log(data);
+const destinations = getAllDestinations();
 
 export default function Content() {
+    let { state } = useLocation();
+
+    const [userDestination, setUserDestination] = useState(state.userDestination)
     const [ships, setShips] = useState(data);
 
     const [departurePortsToFilter, setDeparturePortsToFilter]: any = useState([]);
@@ -146,14 +151,63 @@ export default function Content() {
         setDestinationPortsFilter([]);
     }
 
+    function updateDataFromUserInput() {
+        if(destinationsPortsFilter.length === 0) {
+            console.log('Dest filter empty')
+            return
+        };
+        
+        let updatedShipsList: any[] = [];
+        
+        destinationsPortsFilter.forEach((destination: string) => {
+            data.forEach(ship => {
+                if(updatedShipsList.includes(ship)) return;
+
+                if(ship.destinations.includes(destination)) updatedShipsList.push(ship)
+            })
+        })
+
+        updatedShipsList.length > 0 ? setShips(updatedShipsList) : setShips(data);
+    }
+
+    useEffect(() => {
+        if(userDestination === '' || !userDestination) return;
+        
+        // console.log(userDestination)
+        // console.log(destinations)
+
+        // destinations.forEach(destination => {
+        //     const destinationToLowerCase = destination.toLowerCase();
+        //     const userDestinationToLowerCase = userDestination.toLowerCase();
+
+        //     if(destinationToLowerCase === userDestinationToLowerCase) {
+                
+        //         setDestinationPortsFilter((prev: any) => [...prev, destination])
+        //         console.log(destinationsPortsFilter)
+        //     }
+        // })
+
+        setDestinationPortsFilter((prev: any) => {
+            const userInputFound = destinations.find(destination => destination.toLowerCase() === userDestination.toLowerCase());
+
+            return [...prev, userInputFound]
+        })
+
+        console.log(destinationsPortsFilter )
+
+        setTimeout(() => {
+            updateDataFromUserInput();
+        }, 1000)
+    }, [])
+
     return (
         <div>
-            <div>
+            {/* <div>
                 <img src="src/assets/moai.png" alt="moai-logo" style={{ width: '2rem', marginRight: '0.5rem' }}/>
                 <h1 style={{ fontFamily: 'Lilita One', display: 'inline-block' }}>CRUISE HUB</h1>
-            </div>
+            </div> */}
             <div style={{ padding: '1rem 2rem', display: 'flex' }}>
-                <div style={{ float: 'left', width: '100%' }}>
+                <div style={{ float: 'left', width: 'fit-content' }}>
                     <Filters 
                         departurePortsToFilter={departurePortsToFilter}
                         handlePortsChange={handlePortsChange}

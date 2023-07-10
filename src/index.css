@@ -1,9 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Cherry+Bomb+One&family=Lilita+One&family=Righteous&display=swap');
 
+body {
+  padding: 0;
+  margin: 0;
+}
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
+  box-sizing: border-box;
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
@@ -24,17 +30,25 @@ button, input[type='button'] {
   text-decoration: none;
 }
 
-.main-page button {
-  padding: 0.5rem 1rem;
+.call-to-action-button {
+  padding: 0 1rem;
   border: none;
-  border-radius: 5px;
-  font-size: 1rem;
-  font-weight: 700;
-  background-color: rgb(168, 0, 168);
+  font-size: 1.125rem;
+  font-weight: 400;
+  background: rgb(51,63,255);
+  background: linear-gradient(90deg, rgba(51,63,255,1) 0%, rgba(0,118,255,1) 70%);  
+  display: inline-block;
+  width: 100%;
+  border-radius: 0.3125rem;
 }
 
-.main-page button:hover {
-  background-color: rgb(189, 40, 189);
+.call-to-action-text {
+  font-weight: 400;
+  text-align: left;
+}
+
+.home-page-container {
+  display: flex;
 }
 
 .bold-text {
@@ -93,7 +107,7 @@ dialog button {
   font-size: 1.125rem;
   font-weight: 400;
   padding: 0.5rem 1rem;
-  border: none;
+  border: transparent;
   border-radius: 0.25rem;
   margin-bottom: 0.5rem;
   z-index: 99;
@@ -132,8 +146,11 @@ input[type="range"]::-moz-range-thumb, input[type="range"]::-moz-range-thumb {
 }
 
 .cruise-ship-container {
-  display: grid;
-  grid-template-columns: repeat(6, auto);
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  /* align-items: stretch; */
+  /* grid-template-columns: repeat(6, auto); */
 }
 
 #cruise-ship-images {
