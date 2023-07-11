@@ -1,7 +1,4 @@
-import { useState } from 'react';
 import DeparturePortFilter from './filter-components/DeparturePortFilter';
-import YearBultFilter from './filter-components/YearBuiltFilter';
-import CruiseLengthFilter from './filter-components/CruiseLengthFilter';
 import DestinationsFilter from './filter-components/DestinationsFilter';
 
 type AppProps = {
@@ -17,21 +14,9 @@ type AppProps = {
     clearFilters: any;
 }
 
-const style ={
-    menuStyles: {
-        marginRight: '1.2rem', 
-        position: 'fixed', 
-        zIndex: '99' 
-    }
-}
-
 function Filters({
     departurePortsToFilter,
     handlePortsChange,
-    currentBuildYear,
-    handleYearBuiltChange,
-    cruiseLength,
-    handleCruiseLengthChange,
     destinationsPortsFilter,
     handleDestinationChange,
     handleFiltersClick,

@@ -4,7 +4,6 @@ import ShipDialog from '../components/ShipDialog';
 import { data } from '../utils/ships-data.ts';
 import { getAllDestinations } from '../utils/ships-data.ts'; 
 import { useEffect, useState } from 'react';
-import { compareArrays, compareTripLength, compareBuildYear } from '../utils/compareFunctions.ts';
 import { useLocation } from 'react-router';
 
 const style = {
@@ -22,7 +21,7 @@ const destinations = getAllDestinations();
 export default function Content() {
     let { state } = useLocation();
 
-    const [userDestination, setUserDestination] = useState(state.userDestination)
+    const [userDestination ] = useState(state.userDestination)
     const [ships, setShips] = useState(data);
 
     const [departurePortsToFilter, setDeparturePortsToFilter]: any = useState([]);

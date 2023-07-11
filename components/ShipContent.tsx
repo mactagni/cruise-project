@@ -5,13 +5,6 @@ type AppProps = {
     handleCurrentShipIdChange: any;
 }
 
-const style = {
-    contentStyles: {
-        display: 'flex',
-        // flexWrap: 'wrap'
-    }
-}
-
 function ShipContent({ ships, handleCurrentShipIdChange }: AppProps) {
     // console.log(data);
     return (

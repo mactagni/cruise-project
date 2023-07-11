@@ -45,7 +45,7 @@ function DestinationsFilter({ destinationsPortsFilter, handleDestinationChange }
                     <button onClick={closeDialog}>X</button>
                     <h2>Where are you going?</h2>
                     {
-                        destinations.map((port, index) => {
+                        destinations.map((port) => {
                             return (
                                 <div key={randomString(5)}>
                                     <input 

@@ -12,7 +12,7 @@ const style = {
         width: '100%',
         padding: '0 1rem',
         display: 'flex',
-        flexDirection: 'column',
+        flexDirection: 'column' as 'column',
         alignItems: 'center'
     },
     locationInput: {

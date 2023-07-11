@@ -1,7 +1,7 @@
 import IMAGES from '../src/images/IMAGES';
 
 function Tile({ ship, handleCurrentShipIdChange }: any) {
-    const { shipName, imageSrc, yearBuilt, id, cruiseOwner } = ship;
+    const { shipName, imageSrc, yearBuilt, id } = ship;
 
     const style = {
         container: {

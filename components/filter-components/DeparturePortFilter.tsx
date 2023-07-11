@@ -6,7 +6,7 @@ type AppProps = {
     handlePortsChange: any;
 }
 
-const ports = {
+const ports: any = {
     'North America': [
         'Los Angeles, CA',
         'Miami, FL',
