@@ -3,6 +3,7 @@
 body {
   padding: 0;
   margin: 0;
+  color: rgba(255, 255, 255, 0.87);
 }
 
 :root {
@@ -12,7 +13,6 @@ body {
   box-sizing: border-box;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
 
   font-synthesis: none;
@@ -49,11 +49,16 @@ button, input[type='button'] {
 
 .home-page-container {
   display: flex;
+  flex-grow: 1;
 }
 
 .bold-text {
   font-weight: 700;
   letter-spacing: 0.1rem;
+}
+
+.menu-button {
+  display: none;
 }
 
 dialog {
@@ -165,18 +170,22 @@ input[type="range"]::-moz-range-thumb, input[type="range"]::-moz-range-thumb {
   }
 }
 
-
-/* For screens between 992px and 1200px */
-@media (min-width: 992px) and (max-width: 1200px) {
-  /* Do something for medium screens */
-}
-
-/* For screens between 768px and 992px */
-@media (min-width: 768px) and (max-width: 992px) {
+/* For screens less than 992px */
+@media (max-width: 992px) {
   /* Do something for small screens */
+  .home-page-container {
+    flex-direction: column;
+  }
+
+  .menu-button {
+    display: block;
+  }
+
+  .filters-menu {
+    position: fixed;
+  }
 }
 
 /* For screens smaller than 768px */
 @media (max-width: 768px) {
-  /* Do something for extra small screens */
 }

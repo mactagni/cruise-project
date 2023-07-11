@@ -1,6 +1,7 @@
 import ShipContent from '../components/ShipContent';
 import Filters from '../components/Filters';
 import ShipDialog from '../components/ShipDialog';
+import MenuButton from '../components/MenuButton';
 import { data } from '../utils/ships-data.ts';
 import { getAllDestinations } from '../utils/ships-data.ts'; 
 import { useEffect, useState } from 'react';
@@ -23,6 +24,11 @@ export default function Content() {
 
     const [userDestination ] = useState(state.userDestination)
     const [ships, setShips] = useState(data);
+    const [isOpen, setIsOpen] = useState(false);
+
+    function handleIsOpenClick() {
+        setIsOpen(!isOpen);
+    }
 
     const [departurePortsToFilter, setDeparturePortsToFilter]: any = useState([]);
     const [currentBuildYear, setCurrentBuildYear] = useState(2023)
@@ -201,10 +207,7 @@ export default function Content() {
 
     return (
         <div>
-            {/* <div>
-                <img src="src/assets/moai.png" alt="moai-logo" style={{ width: '2rem', marginRight: '0.5rem' }}/>
-                <h1 style={{ fontFamily: 'Lilita One', display: 'inline-block' }}>CRUISE HUB</h1>
-            </div> */}
+            <MenuButton handleIsOpenClick={handleIsOpenClick} />
             <div style={{ padding: '1rem 2rem', display: 'flex' }}>
                 <div style={{ float: 'left', width: 'fit-content' }}>
                     <Filters 
@@ -218,6 +221,7 @@ export default function Content() {
                         handleDestinationChange={handleDestinationChange}
                         handleFiltersClick={handleFiltersClick}
                         clearFilters={clearFilters}
+                        isOpen={isOpen}
                     />
                 </div>
                 <div style={{ display: 'inline-block', width: 'auto', float: 'right' }}>

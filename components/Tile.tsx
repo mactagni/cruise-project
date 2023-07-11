@@ -1,4 +1,4 @@
-import IMAGES from '../src/images/IMAGES';
+import IMAGES from '../src/images/IMAGES.ts';
 
 function Tile({ ship, handleCurrentShipIdChange }: any) {
     const { shipName, imageSrc, yearBuilt, id } = ship;
