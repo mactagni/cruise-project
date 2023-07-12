@@ -8,7 +8,7 @@ function App() {
   return (
     <>
       <div className='main-page'>
-        <div>
+        <div style={{ zIndex: '95', width: '100%', textAlign: 'center' }}>
             <Link to={'/'}>
               <img src="src/assets/moai.png" alt="moai-logo" style={{ width: '2rem', marginRight: '0.5rem' }}/>
               <h1 style={{ fontFamily: 'Lilita One', display: 'inline-block' }}>

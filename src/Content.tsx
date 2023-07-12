@@ -21,7 +21,7 @@ const destinations = getAllDestinations();
 
 export default function Content() {
     let { state } = useLocation();
-
+    
     const [userDestination ] = useState(state.userDestination)
     const [ships, setShips] = useState(data);
     const [isOpen, setIsOpen] = useState(false);
@@ -148,12 +148,15 @@ export default function Content() {
 
         updatedShipsList.length > 0 ? setShips(updatedShipsList) : setShips(data);
         // console.log(ships);
+
+        setIsOpen(false);
     }
 
     function clearFilters() {
         setShips(data);
         setDeparturePortsToFilter([]);
         setDestinationPortsFilter([]);
+        setIsOpen(false)
     }
 
     function updateDataFromUserInput() {
@@ -207,9 +210,9 @@ export default function Content() {
 
     return (
         <div>
-            <MenuButton handleIsOpenClick={handleIsOpenClick} />
-            <div style={{ padding: '1rem 2rem', display: 'flex' }}>
-                <div style={{ float: 'left', width: 'fit-content' }}>
+            <MenuButton handleIsOpenClick={handleIsOpenClick} isOpen={isOpen} />
+            {/* <div style={{ padding: '1rem 2rem', display: 'flex' }}> */}
+                {/* <div style={{ float: 'left', width: 'fit-content' }}> */}
                     <Filters 
                         departurePortsToFilter={departurePortsToFilter}
                         handlePortsChange={handlePortsChange}
@@ -223,8 +226,8 @@ export default function Content() {
                         clearFilters={clearFilters}
                         isOpen={isOpen}
                     />
-                </div>
-                <div style={{ display: 'inline-block', width: 'auto', float: 'right' }}>
+                {/* </div> */}
+                <div style={{ width: '100%', margin: '0 auto', display: 'flex', justifyContent: 'center' }}>
                     {
                         ships.length === 0
                         ? (
@@ -243,7 +246,7 @@ export default function Content() {
                     dialogDisplay={dialogDisplay}
                     closeShipDialog={closeShipDialog }
                 />
-            </div>
+            {/* </div> */}
         </div>
     )
 }

@@ -47,6 +47,23 @@ button, input[type='button'] {
   text-align: left;
 }
 
+.arrow {
+  border: solid rgb(185, 185, 185);
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+}
+
+.right {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+
+.left {
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
+
 .home-page-container {
   display: flex;
   flex-grow: 1;
@@ -55,10 +72,6 @@ button, input[type='button'] {
 .bold-text {
   font-weight: 700;
   letter-spacing: 0.1rem;
-}
-
-.menu-button {
-  display: none;
 }
 
 dialog {
@@ -150,6 +163,14 @@ input[type="range"]::-moz-range-thumb, input[type="range"]::-moz-range-thumb {
   cursor: pointer; /* Cursor on hover */
 }
 
+.menu-button {
+  opacity: 70%;
+}
+
+.menu-button:hover {
+  opacity: 100%;
+}
+
 .cruise-ship-container {
   width: 100%;
   display: flex;
@@ -178,11 +199,7 @@ input[type="range"]::-moz-range-thumb, input[type="range"]::-moz-range-thumb {
   }
 
   .menu-button {
-    display: block;
-  }
-
-  .filters-menu {
-    position: fixed;
+    opacity: 100%;
   }
 }
 

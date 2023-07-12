@@ -26,14 +26,15 @@ function Filters({
 }: AppProps) {
     return (
         <div style={{
-                height: '100%',
-                width: '100%',
-                marginRight: '1.2rem', 
-                position: 'fixed', 
+                height: '100vh',
+                // margin: '0 1.2rem', 
+                position: 'fixed',
+                left: '0',
                 zIndex: '99',
                 display: isOpen ? 'flex' : 'none',
                 justifyContent: 'center',
                 backgroundColor: '#242424',
+                padding: '0 2rem'
             }}
             className='filters-menu'
         >

@@ -4,7 +4,8 @@ const style = {
         height: 'fit-content',
         backgroundColor: '#1E1E1E',
         marginTop: 'auto',
-        fontWeight: '700'
+        fontWeight: '700',
+        zIndex: '99'
     }
 }
 
