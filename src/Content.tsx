@@ -13,7 +13,7 @@ const style = {
         height: '100%',
         display: 'flex',
         justifyContent: 'center',
-        alignItems: 'ceneter',
+        alignItems: 'center',
     }
 }
 
@@ -29,13 +29,14 @@ export default function Content() {
     function handleIsOpenClick() {
         setIsOpen(!isOpen);
     }
-
+    
     const [departurePortsToFilter, setDeparturePortsToFilter]: any = useState([]);
     const [currentBuildYear, setCurrentBuildYear] = useState(2023)
     const [cruiseLength, setCruiseLength] = useState(1);
     const [destinationsPortsFilter, setDestinationPortsFilter]: any = useState([]);
     const [currentShip, setCurrentShip] = useState(data[0]);
     const [dialogDisplay, setDialogDisplay] = useState(false);
+    const [region, setRegion] = useState('')
 
     function handleCurrentShipIdChange(e: any) {
         e.preventDefault();
@@ -208,6 +209,19 @@ export default function Content() {
         }, 1000)
     }, [])
 
+    // Set current region for port of departure
+    function handleRegionClick(e: any) {
+        e.preventDefault();
+
+        const region: string = e.target.value;
+        setRegion(region)
+
+        const checkBoxSelector: any = document.querySelector('.check-box-page');
+
+        // Open CheckBox with specified region
+        checkBoxSelector.style.display = 'block';
+    }
+
     return (
         <div>
             <MenuButton handleIsOpenClick={handleIsOpenClick} isOpen={isOpen} />
@@ -225,6 +239,9 @@ export default function Content() {
                         handleFiltersClick={handleFiltersClick}
                         clearFilters={clearFilters}
                         isOpen={isOpen}
+                        region={region}
+                        setRegion={setRegion}
+                        handleRegionClick={handleRegionClick}
                     />
                 {/* </div> */}
                 <div style={{ width: '100%', margin: '0 auto', display: 'flex', justifyContent: 'center' }}>

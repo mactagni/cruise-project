@@ -1,5 +1,6 @@
 import DeparturePortFilter from './filter-components/DeparturePortFilter';
 import DestinationsFilter from './filter-components/DestinationsFilter';
+import CheckBox from './filter-components/CheckBox';
 
 type AppProps = {
     departurePortsToFilter: any;
@@ -13,6 +14,9 @@ type AppProps = {
     handleFiltersClick: any;
     clearFilters: any;
     isOpen: boolean;
+    region: string;
+    setRegion: any;
+    handleRegionClick: any;
 }
 
 function Filters({
@@ -22,7 +26,10 @@ function Filters({
     handleDestinationChange,
     handleFiltersClick,
     clearFilters,
-    isOpen
+    isOpen,
+    region,
+    setRegion,
+    handleRegionClick
 }: AppProps) {
     return (
         <div style={{
@@ -44,12 +51,10 @@ function Filters({
                 </div>
                 <form>
                     <DeparturePortFilter
-                        departurePortsToFilter={departurePortsToFilter}
-                        handlePortsChange={handlePortsChange}
+                        handleRegionClick={handleRegionClick}
                     />
                     <DestinationsFilter 
-                        destinationsPortsFilter={destinationsPortsFilter}
-                        handleDestinationChange={handleDestinationChange}
+                        setRegion={setRegion}
                     />
                     {/* <YearBultFilter 
                         currentBuildYear={currentBuildYear}
@@ -63,6 +68,13 @@ function Filters({
                 <div>
                     <input onClick={clearFilters} className='filter-button clear-filters-button filter-components' type="button" value="Clear" />
                 </div>
+                <CheckBox
+                    region={region}
+                    handlePortsChange={handlePortsChange}
+                    departurePortsToFilter={departurePortsToFilter}
+                    handleDestinationChange={handleDestinationChange}
+                    destinationsPortsFilter={destinationsPortsFilter}
+                />
             </div>
         </div>
     )

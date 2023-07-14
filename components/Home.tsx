@@ -19,7 +19,7 @@ const style = {
         marginBottom: '0.5rem',
         border: 'transparent',
         backgroundColor: '#d1d1d1',
-        padding: '0.5rem 1rem',
+        padding: '0.5rem 0',
         outline: 'none',
         color: '#000',
         fontWeight: '500',

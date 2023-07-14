@@ -1,9 +1,7 @@
 import randomString from '../../utils/randomString.ts';
-import { useState, useEffect } from 'react';
 
 type AppProps = {
-    departurePortsToFilter: any;
-    handlePortsChange: any;
+    handleRegionClick: any;
 }
 
 const ports: any = {
@@ -161,79 +159,26 @@ const ports: any = {
 //     'Charleston, SC'
 // ]
 
-function DeparturePortFilter({ departurePortsToFilter, handlePortsChange}: AppProps) {
-    const [region, setRegion]: any[] = useState([])
-    const [dialogDisplay, setDialogDisplay] = useState(false);
-
-    function handleRegionClick(e: any) {
-        e.preventDefault();
-
-        const buttonValue: string = e.target.value;
-        const region: string[] = ports[buttonValue]
-        
-        setRegion(region)
-        setDialogDisplay(true)
-    }
-
-    function closeDialog(e: any) {
-        e.preventDefault();
-
-        setDialogDisplay(false)
-        setRegion([])
-    }
-
-    useEffect(() => {
-        function handleEscapeKey(event: KeyboardEvent) {
-          if (event.code === 'Escape') {
-            setDialogDisplay(false)
-          }
-        }
-      
-        document.addEventListener('keydown', handleEscapeKey)
-        return () => document.removeEventListener('keydown', handleEscapeKey)
-      }, [])
+function DeparturePortFilter({ handleRegionClick }: AppProps) {
 
     return (
-        <>
-            <div className='filter-container filter-components'>
-                <p style={{ textAlign: 'center' }}>Departure Port</p>
-                <div>
-                    {
-                        Object.keys(ports).map((port: string) => {
-                            return(
-                                <button 
-                                    value={port} 
-                                    onClick={handleRegionClick} 
-                                    className='port-region' 
-                                    key={randomString(5)}
-                                >{port}</button>
-                            )
-                        })
-                    }
-                </div>
-            </div>
-            <dialog open={dialogDisplay}>
-                <button onClick={closeDialog}>X</button>
-                <h2>Where are you leaving from?</h2>
+        <div className='filter-container filter-components'>
+            <p style={{ textAlign: 'center' }}>Departure Port</p>
+            <div>
                 {
-                    region.map((port: string) => {
-                        return (
-                            <div key={randomString(5)}>
-                                <input 
-                                    onChange={handlePortsChange} 
-                                    checked={departurePortsToFilter.includes(port)} 
-                                    type='checkbox' 
-                                    name={port} 
-                                    value={port} 
-                                    id={port}
-                                />
-                                <label htmlFor={port}>{port}</label>
-                            </div>
+                    Object.keys(ports).map((port: string) => {
+                        return(
+                            <button 
+                                value={port} 
+                                onClick={handleRegionClick} 
+                                className='port-region' 
+                                key={randomString(5)}
+                            >{port}</button>
                         )
                     })
                 }
-            </dialog>
-        </>
+            </div>
+        </div>
     )
 }
 

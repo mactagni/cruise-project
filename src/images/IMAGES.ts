@@ -42,7 +42,7 @@ const imageData = [
     { folderName: 'carnival', imageName: 'sunshine' },
     { folderName: 'carnival', imageName: 'valor' },
     { folderName: 'carnival', imageName: 'venezia' },
-    // { folderName: 'carnival', imageName: 'vista' }
+    { folderName: 'carnival', imageName: 'vista' }
 ]
 
 let IMAGES: any = {
@@ -54,10 +54,10 @@ for(let i of imageData) {
 
     IMAGES[i.imageName] = new URL(imageUrl, import.meta.url).href;
 }
-console.log(IMAGES)
+// console.log(IMAGES)
 
 
-IMAGES.vista = new URL('./carival/vista.webp', import.meta.url).href;
+// IMAGES.vista = new URL('./carival/vista.webp', import.meta.url).href;
 IMAGES.imageStack = new URL('./homepage-images/image-stack.png', import.meta.url).href
 
 export default IMAGES;
