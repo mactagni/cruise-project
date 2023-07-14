@@ -29,6 +29,14 @@ export default function Content() {
     function handleIsOpenClick() {
         setIsOpen(!isOpen);
     }
+
+    // Disable scrolling when Filters menu is open
+    useEffect(() => {
+        if(isOpen) {
+            const shipContainer: any = document.querySelector('.cruise-ship-container');
+            shipContainer.style.overflow = 'hidden';
+        }
+    }, [])
     
     const [departurePortsToFilter, setDeparturePortsToFilter]: any = useState([]);
     const [currentBuildYear, setCurrentBuildYear] = useState(2023)
@@ -223,47 +231,43 @@ export default function Content() {
     }
 
     return (
-        <div>
+        <div className='content-container'>
             <MenuButton handleIsOpenClick={handleIsOpenClick} isOpen={isOpen} />
-            {/* <div style={{ padding: '1rem 2rem', display: 'flex' }}> */}
-                {/* <div style={{ float: 'left', width: 'fit-content' }}> */}
-                    <Filters 
-                        departurePortsToFilter={departurePortsToFilter}
-                        handlePortsChange={handlePortsChange}
-                        currentBuildYear={currentBuildYear}
-                        handleYearBuiltChange={handleYearBuiltChange}
-                        cruiseLength={cruiseLength}
-                        handleCruiseLengthChange={handleCruiseLengthChange}
-                        destinationsPortsFilter={destinationsPortsFilter}
-                        handleDestinationChange={handleDestinationChange}
-                        handleFiltersClick={handleFiltersClick}
-                        clearFilters={clearFilters}
-                        isOpen={isOpen}
-                        region={region}
-                        setRegion={setRegion}
-                        handleRegionClick={handleRegionClick}
+            <Filters 
+                departurePortsToFilter={departurePortsToFilter}
+                handlePortsChange={handlePortsChange}
+                currentBuildYear={currentBuildYear}
+                handleYearBuiltChange={handleYearBuiltChange}
+                cruiseLength={cruiseLength}
+                handleCruiseLengthChange={handleCruiseLengthChange}
+                destinationsPortsFilter={destinationsPortsFilter}
+                handleDestinationChange={handleDestinationChange}
+                handleFiltersClick={handleFiltersClick}
+                clearFilters={clearFilters}
+                isOpen={isOpen}
+                region={region}
+                setRegion={setRegion}
+                handleRegionClick={handleRegionClick}
+            />
+            <div style={{ width: '100%', margin: '0 auto', display: 'flex', justifyContent: 'center' }}>
+                {
+                    ships.length === 0
+                    ? (
+                        <div style={style.nothingFound}>
+                            <p>Oops! Nothing found</p>
+                        </div>
+                    )
+                    : <ShipContent 
+                        ships={ships}
+                        handleCurrentShipIdChange={handleCurrentShipIdChange}
                     />
-                {/* </div> */}
-                <div style={{ width: '100%', margin: '0 auto', display: 'flex', justifyContent: 'center' }}>
-                    {
-                        ships.length === 0
-                        ? (
-                            <div style={style.nothingFound}>
-                                <p>Oops! Nothing found</p>
-                            </div>
-                        )
-                        : <ShipContent 
-                            ships={ships}
-                            handleCurrentShipIdChange={handleCurrentShipIdChange}
-                        />
-                    }
-                </div>
-                <ShipDialog
-                    ship={currentShip}
-                    dialogDisplay={dialogDisplay}
-                    closeShipDialog={closeShipDialog }
-                />
-            {/* </div> */}
+                }
+            </div>
+            <ShipDialog
+                ship={currentShip}
+                dialogDisplay={dialogDisplay}
+                closeShipDialog={closeShipDialog }
+            />
         </div>
     )
 }
