@@ -56,8 +56,7 @@ for(let i of imageData) {
 }
 // console.log(IMAGES)
 
-
-// IMAGES.vista = new URL('./carival/vista.webp', import.meta.url).href;
+IMAGES.moai = new URL('./homepage-images/moai.png', import.meta.url).href;
 IMAGES.imageStack = new URL('./homepage-images/image-stack.png', import.meta.url).href
 
 export default IMAGES;
