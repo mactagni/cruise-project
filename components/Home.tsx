@@ -62,9 +62,11 @@ function Home() {
             <div style={{...style.homePageContainer, marginBottom: '1.5rem'}}>
                 <div style={{ margin: '0 auto 1rem'}}>
                     <h2 className='call-to-action-text'>
-                        RELAX AND REJUVINATE...
-                        <br></br>
-                        ALL WHILE MAKING
+                        <span className='call-to-action-light-mode'>
+                            RELAX AND REJUVINATE...
+                            <br></br>
+                            ALL WHILE MAKING
+                        </span>
                         <br />
                         <span style={{ color: 'rgba(0,118,255,1)' }}>
                             MEMORIES THAT WILL LAST A 

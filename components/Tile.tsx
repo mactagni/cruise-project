@@ -9,7 +9,7 @@ function Tile({ ship, handleCurrentShipIdChange }: any) {
             margin: '0.5rem 0.3rem',
             borderRadius: '0.4rem',
             width: '10rem',
-            backgroundColor: '#1E1E1E',
+            // backgroundColor: '#1E1E1E',
         },
         shipNameStyles: { fontWeight: '600'},
         shipYearStyles: {
@@ -37,7 +37,7 @@ function Tile({ ship, handleCurrentShipIdChange }: any) {
     // }
 
     return (
-        <div style={style.container}>
+        <div style={style.container} className='tile-container'>
             <img id='cruise-ship-images' src={IMAGES[imageSrc]} alt={imageSrc}/>
             <p style={style.shipNameStyles}>{shipName}</p>
             <p style={style.shipYearStyles}>{yearBuilt}</p>

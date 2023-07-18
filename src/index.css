@@ -69,22 +69,26 @@ button, input[type='button'] {
   flex-grow: 1;
 }
 
+.content-container {
+  padding: 0 10rem;
+}
+
 .bold-text {
   font-weight: 700;
   letter-spacing: 0.1rem;
 }
 
 dialog {
-  position: fixed;
+  position: absolute;
   width: max-content;
-  left: 12rem;
+  right: 1rem;
   top: 1rem;
   border: transparent;
   border-radius: 1.25rem;
   text-align: left;
   z-index: 99;
   font-size: 0.7rem;
-  box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.125);
   overflow: scroll;
 }
 
@@ -118,6 +122,11 @@ dialog button {
 
 .port-region:hover, .destination-button:hover {
   color: rgba(219, 212, 255, 0.87)
+}
+
+.filters-menu {
+  background-color: #242424;
+  
 }
 
 .filter-button {
@@ -198,15 +207,63 @@ input[type="range"]::-moz-range-thumb, input[type="range"]::-moz-range-thumb {
   /* grid-template-columns: repeat(6, auto); */
 }
 
+.tile-container {
+  background-color: #1E1E1E;
+}
+
 #cruise-ship-images {
   border-radius: 0.4rem 0.4rem 0 0;
   max-width: 10rem;
+}
+
+.hub {
+  color: #cecece;
+}
+
+.forter {
+  background-color: #1E1E1E;
+  margin: auto;
 }
 
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
     background-color: #ffffff;
+  }
+
+  .call-to-action-light-mode {
+    color: #A8A8A8;
+  }
+
+  .call-to-action-button {
+    color: #FFF;
+  }
+
+  .hub {
+    color: #C9C9C9;
+  }
+
+  .filters-menu {
+    background-color: #FFF;
+    color: #000;
+  }
+
+  .filter-container {
+    background-color: #A8A8A8;
+  }
+
+  .check-box-page {
+    background-color: #FFF;
+    color: #000;
+  }
+
+  .tile-container {
+    background-color: #A8A8A8;
+  }
+
+  .footer {
+    background-color: #A8A8A8;
+    color: #000;
   }
 }
 

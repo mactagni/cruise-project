@@ -40,8 +40,7 @@ function Filters({
                 zIndex: '99',
                 display: isOpen ? 'flex' : 'none',
                 justifyContent: 'center',
-                backgroundColor: '#242424',
-                padding: '0 2rem'
+                padding: '2rem 2rem'
             }}
             className='filters-menu'
         >

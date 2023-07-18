@@ -15,7 +15,7 @@ function App() {
                 <span style={{ color: 'rgba(0,118,255,1)'}}>
                   CRUISE
                 </span>
-                <span style={{ color: '#FFF'}}>
+                <span className='hub'>
                   HUB
                 </span>
               </h1>

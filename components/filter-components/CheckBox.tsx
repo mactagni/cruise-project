@@ -111,7 +111,7 @@ function CheckBox({
     }
 
     const departureDiv = (
-        <div>
+        <div className="check-box">
             <h2>Departure</h2>
             <div className="check-box-list">
                 {
@@ -138,7 +138,7 @@ function CheckBox({
     )
 
     const destinationDiv = (
-        <div>
+        <div className="check-box">
             <h2>Destination</h2>
             <div className="check-box-list">
                 {

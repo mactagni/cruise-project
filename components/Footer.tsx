@@ -1,8 +1,7 @@
 const style = {
     footer: {
-        width: '100vw',
+        width: '100%',
         height: 'fit-content',
-        backgroundColor: '#1E1E1E',
         marginTop: 'auto',
         fontWeight: '700',
         zIndex: '99'
@@ -11,7 +10,7 @@ const style = {
 
 function Footer() {
     return(
-        <div style={style.footer}>
+        <div className="footer" style={style.footer}>
             <p>Cruise Hub</p>
             <p style={{ fontSize: '0.75rem'}}>by mac tagni</p>
         </div>

@@ -249,7 +249,7 @@ export default function Content() {
                 setRegion={setRegion}
                 handleRegionClick={handleRegionClick}
             />
-            <div style={{ width: '100%', margin: '0 auto', display: 'flex', justifyContent: 'center' }}>
+            <div style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
                 {
                     ships.length === 0
                     ? (
