@@ -32,11 +32,15 @@ export default function Content() {
 
     // Disable scrolling when Filters menu is open
     useEffect(() => {
+        const bodyStyle = document.body.style
+
         if(isOpen) {
-            const shipContainer: any = document.querySelector('.cruise-ship-container');
-            shipContainer.style.overflow = 'hidden';
+            bodyStyle.overflow = 'hidden';
+        } else {
+            bodyStyle.overflow = 'scroll';
         }
-    }, [])
+
+    }, [isOpen])
     
     const [departurePortsToFilter, setDeparturePortsToFilter]: any = useState([]);
     const [currentBuildYear, setCurrentBuildYear] = useState(2023)

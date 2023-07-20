@@ -38,7 +38,7 @@ function Tile({ ship, handleCurrentShipIdChange }: any) {
 
     return (
         <div style={style.container} className='tile-container'>
-            <img id='cruise-ship-images' src={IMAGES[imageSrc]} alt={imageSrc}/>
+            <img id='cruise-ship-images' src={IMAGES[imageSrc]} alt={imageSrc} loading='lazy'/>
             <p style={style.shipNameStyles}>{shipName}</p>
             <p style={style.shipYearStyles}>{yearBuilt}</p>
             <button
