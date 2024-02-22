@@ -2,7 +2,11 @@ import IMAGES from '../src/images/IMAGES.ts';
 
 function Tile({ ship, handleCurrentShipIdChange }: any) {
     const { shipName, imageSrc, yearBuilt, id } = ship;
+    // for(let image in IMAGES) {
+    //     console.log(image.imageSrc);
+    // }
 
+    console.log(IMAGES)
     const style = {
         container: {
             paddingBottom: '1rem',
@@ -38,7 +42,10 @@ function Tile({ ship, handleCurrentShipIdChange }: any) {
 
     return (
         <div style={style.container} className='tile-container'>
-            <img id='cruise-ship-images' src={IMAGES[imageSrc]} alt={imageSrc} loading='lazy'/>
+            <picture>
+                {/* <source id='cruise-ship-images' src={IMAGES[imageSrc]} type="image/webp" /> */}
+                <img id='cruise-ship-images' src={IMAGES[imageSrc]} alt={imageSrc} loading='lazy'/>
+            </picture>
             <p style={style.shipNameStyles}>{shipName}</p>
             <p style={style.shipYearStyles}>{yearBuilt}</p>
             <button

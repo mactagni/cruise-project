@@ -50,7 +50,7 @@ let IMAGES: any = {
 }
 
 for(let i of imageData) {
-    const imageUrl = `./${i.folderName}/${i.imageName}.webp`;
+    const imageUrl = `./${i.folderName}/${i.imageName}.png`;
 
     IMAGES[i.imageName] = new URL(imageUrl, import.meta.url).href;
 }
