@@ -6,7 +6,7 @@ function Tile({ ship, handleCurrentShipIdChange }: any) {
     //     console.log(image.imageSrc);
     // }
 
-    console.log(IMAGES)
+    // console.log(IMAGES)
     const style = {
         container: {
             paddingBottom: '1rem',
